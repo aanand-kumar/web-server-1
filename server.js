@@ -29,15 +29,8 @@ app.set('view engine',"hbs");
 app.use(express.static(__dirname+"/public"));
 
  app.get("/",(req,res)=>{
-    // res.send("<h1>hey budddy</h1>");
-    // res.send({
-    //     work:"webdexv",
-    //     name:"ad",
-    //     want:[1,2,"something"]
-    // });
     res.render('home.hbs',{
         title:"Home page",
-     
         welcome:" welcome my bro"
     });
  });
@@ -49,6 +42,12 @@ app.use(express.static(__dirname+"/public"));
         
     });
  });
+
+app.get("/port",(req,res)=>{
+    res.render('port.hbs',{
+        title:"add portfolio"
+    });
+});
 
  app.get("/bad",(req,res)=>{
      res.send({
