@@ -1,7 +1,7 @@
 var express=require("express");
 var hbs= require("hbs");
 var fs=require("fs");
-
+const port=process.env.PORT || 3000;
 var app= express();
 hbs.registerPartials(__dirname+"/views/partials");
 hbs.registerHelper("getyear",()=>{
@@ -22,9 +22,7 @@ app.use((req,res,next)=>{
     });
     next();
 });
-app.use((req,res,next)=>{
-    res.render("maintance.hbs");
-})
+
 
 app.set('view engine',"hbs");
 
@@ -57,6 +55,6 @@ app.use(express.static(__dirname+"/public"));
          bad:"something is bad"
      });
  })
- app.listen(3000,()=>{
-     console.log("server is running");
+ app.listen(port,()=>{
+     console.log(`server is up in ${port}`);
  });
